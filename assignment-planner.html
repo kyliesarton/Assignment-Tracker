@@ -319,6 +319,41 @@
       color: var(--text);
     }
 
+    /* ── Day navigation ── */
+    .day-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .day-nav-btn {
+      background: var(--surface);
+      border: 1px solid var(--bg-deep);
+      border-radius: 8px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.15rem;
+      line-height: 1;
+      padding: 3px 12px;
+      transition: background 0.15s;
+    }
+    .day-nav-btn:hover { background: var(--surface-2); }
+    .today-jump-btn {
+      background: none;
+      border: none;
+      color: var(--green);
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      transition: background 0.15s;
+    }
+    .today-jump-btn:hover { background: var(--green-light); }
+    .today-jump-btn.hidden { visibility: hidden; pointer-events: none; }
+
     /* Progress card */
     .progress-card {
       padding: 24px 28px;
@@ -1159,6 +1194,11 @@
     <div class="today-date-header">
       <div class="weekday" id="t-weekday"></div>
       <div class="full-date" id="t-fulldate"></div>
+      <div class="day-nav">
+        <button class="day-nav-btn" onclick="prevDay()" title="Previous day">&#8249;</button>
+        <button class="day-nav-btn" onclick="nextDay()" title="Next day">&#8250;</button>
+        <button class="today-jump-btn hidden" id="jump-today-btn" onclick="jumpToToday()">&#8617; Today</button>
+      </div>
     </div>
 
     <!-- Progress ring card -->
@@ -1266,7 +1306,8 @@ let assignments  = [];
 let classColors  = {};
 let completed    = {}; // `${id}_${date}` -> true
 let moves        = []; // { assignmentId, fromDate, toDate, hours }
-let currentTab   = 'today';
+let currentTab      = 'today';
+let viewedDayOffset = 0;        // offset from real today for the Today-tab day navigator
 let calYear, calMonth;
 let manageOpen   = false;
 let openMovePanels = new Set(); // task keys with open move panels
@@ -1446,8 +1487,26 @@ function updateClassDl() {
 /* ════════════════════════════════════
    TODAY VIEW
 ════════════════════════════════════ */
+function prevDay() {
+  viewedDayOffset--;
+  document.getElementById('jump-today-btn').classList.toggle('hidden', viewedDayOffset === 0);
+  renderToday();
+}
+
+function nextDay() {
+  viewedDayOffset++;
+  document.getElementById('jump-today-btn').classList.toggle('hidden', viewedDayOffset === 0);
+  renderToday();
+}
+
+function jumpToToday() {
+  viewedDayOffset = 0;
+  document.getElementById('jump-today-btn').classList.add('hidden');
+  renderToday();
+}
+
 function renderToday() {
-  const today = todayStr();
+  const today = addDays(todayStr(), viewedDayOffset);
   const dayD  = parseD(today);
 
   document.getElementById('t-weekday').textContent  =
@@ -1518,7 +1577,7 @@ function renderToday() {
   if (allDone) {
     secEl.textContent = 'All Done!';
   } else {
-    secEl.textContent = "Today's Tasks";
+    secEl.textContent = viewedDayOffset === 0 ? "Today's Tasks" : "Tasks for " + dayD.toLocaleDateString('en-US', {month:'long', day:'numeric'});
   }
 
   listEl.innerHTML = tasks.map(({ assignment: a, hours, wasMoved }) => {
