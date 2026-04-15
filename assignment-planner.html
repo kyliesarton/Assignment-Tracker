@@ -33,7 +33,7 @@
       --radius:       14px;
       --radius-sm:    9px;
       --ring-r:       76;
-      --ring-circ:    477.52; /* 2π×76 */
+      --ring-circ:    477.52; /* 2ÏÃ76 */
     }
 
     body {
@@ -43,7 +43,7 @@
       min-height: 100vh;
     }
 
-    /* ── HEADER ── */
+    /* ââ HEADER ââ */
     header {
       background: var(--surface);
       border-bottom: 1px solid var(--border);
@@ -84,7 +84,7 @@
 
     .header-right { display: flex; gap: 8px; }
 
-    /* ── BUTTONS ── */
+    /* ââ BUTTONS ââ */
     .btn {
       padding: 7px 14px;
       border-radius: var(--radius-sm);
@@ -136,14 +136,14 @@
     }
     .btn-danger-ghost:hover { background: var(--danger-light); }
 
-    /* ── CONTAINER ── */
+    /* ââ CONTAINER ââ */
     .container {
       max-width: 820px;
       margin: 0 auto;
       padding: 22px 16px 60px;
     }
 
-    /* ── CARD / PANEL ── */
+    /* ââ CARD / PANEL ââ */
     .card {
       background: var(--surface);
       border-radius: var(--radius);
@@ -175,7 +175,7 @@
       margin-bottom: 14px;
     }
 
-    /* ── FORM ── */
+    /* ââ FORM ââ */
     .form-grid {
       display: grid;
       grid-template-columns: 2fr 1.5fr 1fr 1fr;
@@ -214,7 +214,7 @@
 
     .form-footer { display: flex; gap: 8px; }
 
-    /* ── IMPORT ── */
+    /* ââ IMPORT ââ */
     .import-drop {
       border: 2px dashed var(--border);
       border-radius: var(--radius-sm);
@@ -238,7 +238,7 @@
     .import-note code { background: var(--bg-deep); padding: 1px 5px; border-radius: 4px; font-size: 0.68rem; }
     .import-note a { color: var(--green); cursor: pointer; text-decoration: underline; }
 
-    /* ── TABS ── */
+    /* ââ TABS ââ */
     .tabs-wrap {
       display: flex;
       align-items: center;
@@ -276,7 +276,7 @@
 
     .tab:not(.active):hover { background: var(--bg-deep); color: var(--text); }
 
-    /* ── LEGEND ── */
+    /* ââ LEGEND ââ */
     .legend { display: flex; flex-wrap: wrap; gap: 5px; }
 
     .legend-chip {
@@ -292,13 +292,13 @@
 
     .legend-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.55); }
 
-    /* ── VIEW SWITCHER ── */
+    /* ââ VIEW SWITCHER ââ */
     .view { display: none; }
     .view.active { display: block; }
 
-    /* ══════════════════════════════════════
+    /* ââââââââââââââââââââââââââââââââââââââ
        TODAY VIEW
-    ══════════════════════════════════════ */
+    ââââââââââââââââââââââââââââââââââââââ */
     .today-date-header {
       margin-bottom: 16px;
     }
@@ -319,7 +319,7 @@
       color: var(--text);
     }
 
-    /* ── Day navigation ── */
+    /* ââ Day navigation ââ */
     .day-nav {
       display: flex;
       align-items: center;
@@ -717,9 +717,9 @@
     .no-tasks-today h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
     .no-tasks-today p { font-size: 0.82rem; }
 
-    /* ══════════════════════════════════════
+    /* ââââââââââââââââââââââââââââââââââââââ
        LIST VIEW
-    ══════════════════════════════════════ */
+    ââââââââââââââââââââââââââââââââââââââ */
     .overdue-bar {
       display: flex;
       align-items: center;
@@ -854,9 +854,9 @@
 
     .lt-hrs { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); }
 
-    /* ══════════════════════════════════════
+    /* ââââââââââââââââââââââââââââââââââââââ
        CALENDAR VIEW
-    ══════════════════════════════════════ */
+    ââââââââââââââââââââââââââââââââââââââ */
     .cal-wrap {
       background: var(--surface);
       border: 1px solid var(--border-light);
@@ -951,9 +951,9 @@
       padding: 1px 3px;
     }
 
-    /* ══════════════════════════════════════
+    /* ââââââââââââââââââââââââââââââââââââââ
        MANAGE PANEL
-    ══════════════════════════════════════ */
+    ââââââââââââââââââââââââââââââââââââââ */
     .manage-wrap {
       background: var(--surface);
       border: 1px solid var(--border-light);
@@ -1044,7 +1044,7 @@
       color: #fff;
     }
 
-    /* ── STATS BAR ── */
+    /* ââ STATS BAR ââ */
     .stats-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1080,7 +1080,7 @@
       color: var(--text-muted);
     }
 
-    /* ── EMPTY ── */
+    /* ââ EMPTY ââ */
     .empty {
       text-align: center;
       padding: 52px 20px;
@@ -1091,7 +1091,7 @@
     .empty h3 { font-size: 0.95rem; font-weight: 800; color: var(--text); margin-bottom: 5px; }
     .empty p { font-size: 0.82rem; }
 
-    /* ── TOAST ── */
+    /* ââ TOAST ââ */
     #toast {
       position: fixed;
       bottom: 22px;
@@ -1109,6 +1109,94 @@
     @media (max-width: 500px) {
       .btn span { display: none; }
     }
+  
+    /* ==========================================
+       PUPPY WIDGET
+    ========================================== */
+    .puppy-widget {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 20px 24px 16px;
+      margin-bottom: 14px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: visible;
+    }
+    .puppy-widget-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .puppy-scene {
+      position: relative;
+      width: 160px;
+      height: 140px;
+    }
+    .puppy-svg { width: 100%; height: 100%; overflow: visible; }
+    .puppy-body-group { transition: transform 0.4s ease; transform-origin: 80px 120px; }
+    .puppy-widget.mood-100 .puppy-body-group { animation: puppyJump 0.55s ease infinite alternate; }
+    @keyframes puppyJump { from { transform: translateY(0px); } to { transform: translateY(-14px); } }
+    .puppy-tail { transform-origin: 108px 80px; animation: tailWag 0.7s ease-in-out infinite alternate; }
+    .puppy-widget.mood-0 .puppy-tail { animation: none; transform: rotate(30deg); }
+    .puppy-widget.mood-25 .puppy-tail { animation: tailWagSlow 2.5s ease-in-out infinite alternate; }
+    @keyframes tailWag { from { transform: rotate(-30deg); } to { transform: rotate(30deg); } }
+    @keyframes tailWagSlow { from { transform: rotate(-10deg); } to { transform: rotate(20deg); } }
+    .puppy-tear { opacity: 0; transition: opacity 0.4s; }
+    .puppy-widget.mood-0 .puppy-tear { opacity: 1; animation: tearDrop 1.4s ease-in infinite; }
+    @keyframes tearDrop {
+      0%   { transform: translateY(0);    opacity: 1; }
+      80%  { transform: translateY(12px); opacity: 0.5; }
+      100% { transform: translateY(16px); opacity: 0; }
+    }
+    .puppy-mouth-happy   { opacity: 1; }
+    .puppy-mouth-sad     { opacity: 0; }
+    .puppy-mouth-neutral { opacity: 0; }
+    .puppy-widget.mood-0  .puppy-mouth-happy   { opacity: 0; }
+    .puppy-widget.mood-0  .puppy-mouth-sad     { opacity: 1; }
+    .puppy-widget.mood-0  .puppy-mouth-neutral { opacity: 0; }
+    .puppy-widget.mood-25 .puppy-mouth-happy   { opacity: 0; }
+    .puppy-widget.mood-25 .puppy-mouth-sad     { opacity: 0; }
+    .puppy-widget.mood-25 .puppy-mouth-neutral { opacity: 1; }
+    .puppy-blush { opacity: 0; transition: opacity 0.5s; }
+    .puppy-widget.mood-75  .puppy-blush { opacity: 0.45; }
+    .puppy-widget.mood-100 .puppy-blush { opacity: 0.75; }
+    .puppy-stars { opacity: 0; }
+    .puppy-widget.mood-100 .puppy-stars { opacity: 1; animation: starSpin 2s linear infinite; }
+    @keyframes starSpin {
+      0%   { transform: rotate(0deg)   scale(1);    }
+      50%  { transform: rotate(180deg) scale(1.12); }
+      100% { transform: rotate(360deg) scale(1);    }
+    }
+    .puppy-bone {
+      position: absolute;
+      font-size: 1.8rem;
+      pointer-events: none;
+      opacity: 0;
+      bottom: 30px;
+      right: 0px;
+      z-index: 10;
+    }
+    .puppy-bone.fly { animation: boneFly 0.85s cubic-bezier(.22,.68,0,1.2) forwards; }
+    @keyframes boneFly {
+      0%   { opacity: 1; transform: translate(0,0)       scale(1)    rotate(0deg);   }
+      55%  { opacity: 1; transform: translate(-50px,-50px) scale(1.25) rotate(-35deg); }
+      100% { opacity: 0; transform: translate(-70px,-15px) scale(0.4)  rotate(-65deg); }
+    }
+    .puppy-mood-label {
+      font-size: 0.82rem;
+      color: var(--text-2);
+      font-weight: 500;
+      min-height: 1.2em;
+      transition: all 0.4s;
+    }
+
   </style>
 </head>
 <body>
@@ -1215,7 +1303,7 @@
       </div>
       <div class="ring-stats">
         <div class="ring-stat-row">
-          <div class="ring-stat-val" id="ring-remain">—</div>
+          <div class="ring-stat-val" id="ring-remain">â</div>
           <div class="ring-stat-label">Minutes Remaining</div>
         </div>
         <div class="ring-divider"></div>
@@ -1229,6 +1317,56 @@
           <div class="ring-stat-label">Total Today</div>
         </div>
       </div>
+    </div>
+
+    
+    <!-- PUPPY WIDGET -->
+    <div class="puppy-widget mood-0" id="puppy-widget">
+      <div class="puppy-widget-title">Your Study Buddy</div>
+      <div class="puppy-scene">
+        <div class="puppy-bone" id="puppy-bone">&#x1F9B4;</div>
+        <svg class="puppy-stars" style="position:absolute;top:0;left:0;width:160px;height:140px;pointer-events:none;overflow:visible" viewBox="0 0 160 140">
+          <text x="8"   y="28"  font-size="14" fill="#FFD700">&#x2726;</text>
+          <text x="130" y="22"  font-size="12" fill="#FFD700">&#x2605;</text>
+          <text x="18"  y="112" font-size="10" fill="#FFD700">&#x2726;</text>
+          <text x="136" y="102" font-size="14" fill="#FFD700">&#x2605;</text>
+          <text x="72"  y="8"   font-size="11" fill="#FFD700">&#x2726;</text>
+        </svg>
+        <svg class="puppy-svg" viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+          <g class="puppy-body-group">
+            <ellipse class="puppy-tail" cx="112" cy="80" rx="9" ry="18" fill="#C4956A" transform="rotate(-40,112,80)"/>
+            <ellipse cx="78" cy="95" rx="38" ry="30" fill="#D4AA7D"/>
+            <ellipse cx="52" cy="122" rx="12" ry="7" fill="#C4956A" transform="rotate(-10,52,122)"/>
+            <ellipse cx="106" cy="122" rx="12" ry="7" fill="#C4956A" transform="rotate(10,106,122)"/>
+            <rect x="59" y="110" width="13" height="20" rx="6" fill="#D4AA7D"/>
+            <rect x="86" y="110" width="13" height="20" rx="6" fill="#D4AA7D"/>
+            <ellipse cx="65" cy="130" rx="8" ry="5" fill="#C4956A"/>
+            <ellipse cx="92" cy="130" rx="8" ry="5" fill="#C4956A"/>
+            <ellipse cx="78" cy="72" rx="20" ry="16" fill="#D4AA7D"/>
+            <ellipse cx="78" cy="54" rx="28" ry="24" fill="#D4AA7D"/>
+            <ellipse cx="52" cy="44" rx="12" ry="18" fill="#C4956A" transform="rotate(-15,52,44)"/>
+            <ellipse cx="104" cy="44" rx="12" ry="18" fill="#C4956A" transform="rotate(15,104,44)"/>
+            <ellipse cx="67" cy="50" rx="8"  ry="8.5" fill="white"/>
+            <ellipse cx="90" cy="50" rx="8"  ry="8.5" fill="white"/>
+            <ellipse cx="68" cy="51" rx="5"  ry="5.5" fill="#2C1A0E"/>
+            <ellipse cx="91" cy="51" rx="5"  ry="5.5" fill="#2C1A0E"/>
+            <circle  cx="70" cy="49" r="1.5" fill="white"/>
+            <circle  cx="93" cy="49" r="1.5" fill="white"/>
+            <line class="puppy-brow-l" x1="61" y1="42" x2="72" y2="44" stroke="#8B5E3C" stroke-width="2.5" stroke-linecap="round"/>
+            <line class="puppy-brow-r" x1="98" y1="42" x2="87" y2="44" stroke="#8B5E3C" stroke-width="2.5" stroke-linecap="round"/>
+            <ellipse cx="78" cy="60" rx="14" ry="10" fill="#C4956A"/>
+            <ellipse cx="78" cy="56" rx="5"  ry="3.5" fill="#2C1A0E"/>
+            <path class="puppy-mouth-happy"   d="M70 64 Q78 72 86 64" fill="none" stroke="#2C1A0E" stroke-width="2" stroke-linecap="round"/>
+            <path class="puppy-mouth-sad"     d="M70 67 Q78 61 86 67" fill="none" stroke="#2C1A0E" stroke-width="2" stroke-linecap="round"/>
+            <path class="puppy-mouth-neutral" d="M70 65 Q78 65 86 65" fill="none" stroke="#2C1A0E" stroke-width="2" stroke-linecap="round"/>
+            <ellipse class="puppy-blush" cx="57" cy="59" rx="8" ry="5" fill="#FF9999" opacity="0.6"/>
+            <ellipse class="puppy-blush" cx="99" cy="59" rx="8" ry="5" fill="#FF9999" opacity="0.6"/>
+            <ellipse class="puppy-tear" cx="62" cy="58" rx="2.5" ry="3.5" fill="#6BB5E8"/>
+            <ellipse class="puppy-tear" cx="94" cy="58" rx="2.5" ry="3.5" fill="#6BB5E8"/>
+          </g>
+        </svg>
+      </div>
+      <div class="puppy-mood-label" id="puppy-mood-label">&#x1F622; Feed me some bones!</div>
     </div>
 
     <!-- Today's task list -->
@@ -1288,20 +1426,20 @@ window.onerror = function(msg, src, line, col, err) {
   document.body.prepend(b);
 };
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    CONSTANTS
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 const COLORS = [
   '#4A7A5E','#7C6B4D','#5B7A8F','#8F5B5B',
   '#6E7D4D','#5B6E7D','#7D5B6E','#8F7A4D',
   '#4D7D7D','#6E5B8F'
 ];
 
-const RING_CIRC = 477.52; // 2π × 76
+const RING_CIRC = 477.52; // 2Ï Ã 76
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    STATE
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 let assignments  = [];
 let classColors  = {};
 let completed    = {}; // `${id}_${date}` -> true
@@ -1313,9 +1451,9 @@ let manageOpen   = false;
 let openMovePanels = new Set(); // task keys with open move panels
 let openKebabs     = new Set(); // assignment ids with open kebab menus
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    PERSISTENCE
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function save() {
   localStorage.setItem('ap2_assign',    JSON.stringify(assignments));
   localStorage.setItem('ap2_colors',    JSON.stringify(classColors));
@@ -1334,9 +1472,9 @@ function load() {
   }
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    DATE UTILS
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function todayStr() {
   return fmtD(new Date());
 }
@@ -1380,9 +1518,9 @@ function fmtMinutes(totalH) {
   return `${h}h ${m}m`;
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    CLASS COLORS
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function getColor(name) {
   if (!classColors[name]) {
     classColors[name] = COLORS[Object.keys(classColors).length % COLORS.length];
@@ -1391,9 +1529,9 @@ function getColor(name) {
   return classColors[name];
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    SCHEDULE GENERATION
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function generateSchedule() {
   const today = todayStr();
   const schedule = {}; // dateStr -> [{assignment, hours, wasMoved?}]
@@ -1439,9 +1577,9 @@ function generateSchedule() {
   return { schedule, overdue };
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    RENDER ALL
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function renderAll() {
   updateStats();
   updateLegend();
@@ -1452,9 +1590,9 @@ function renderAll() {
   else renderCalendar();
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    STATS
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function updateStats() {
   const today = todayStr();
   const week  = addDays(today, 7);
@@ -1484,9 +1622,9 @@ function updateClassDl() {
     Object.keys(classColors).map(c => `<option value="${esc(c)}">`).join('');
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    TODAY VIEW
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function prevDay() {
   viewedDayOffset--;
   document.getElementById('jump-today-btn').classList.toggle('hidden', viewedDayOffset === 0);
@@ -1526,6 +1664,7 @@ function renderToday() {
   });
 
   const pct = totalH > 0 ? Math.round((doneH / totalH) * 100) : 0;
+  updatePuppy(pct);
   const remainH = Math.max(0, totalH - doneH);
 
   // Update ring
@@ -1600,7 +1739,7 @@ function renderToday() {
       <div class="today-task ${isDone ? 'completed' : ''}" id="ttask-${key.replace(/_/g,'--')}">
         <div class="today-task-main">
           <button class="check-btn" data-action="complete" data-id="${a.id}" data-date="${today}" title="${isDone ? 'Mark incomplete' : 'Mark complete'}">
-            ${isDone ? '✓' : ''}
+            ${isDone ? 'â' : ''}
           </button>
           <div class="color-pip" style="background:${color}"></div>
           <div class="task-body">
@@ -1610,9 +1749,9 @@ function renderToday() {
           <div class="task-right">
             ${badge}
             <span class="task-hrs">${fmtMinutes(hours)}</span>
-            ${!isDone ? `<button class="move-btn" onclick="toggleMove('${key}')">Move ↕</button>` : ''}
+            ${!isDone ? `<button class="move-btn" onclick="toggleMove('${key}')">Move â</button>` : ''}
             <div class="kebab-wrap">
-              <button class="kebab-btn" data-action="kebab" data-id="${a.id}" title="Options">⋯</button>
+              <button class="kebab-btn" data-action="kebab" data-id="${a.id}" title="Options">â¯</button>
               <div class="kebab-menu" id="km-${a.id}">
                 <button class="kebab-item danger" data-action="delete" data-id="${a.id}">Delete assignment</button>
               </div>
@@ -1635,8 +1774,10 @@ function renderToday() {
 
 function toggleComplete(assignmentId, dateStr) {
   const key = `${assignmentId}_${dateStr}`;
+  const wasCompleted = !!completed[key];
   if (completed[key]) delete completed[key];
   else completed[key] = true;
+  if (!wasCompleted) feedPuppyBone();
   save();
   renderAll();
 }
@@ -1676,9 +1817,9 @@ function doMoveCustom(assignmentId, fromDate, hours, safeKey) {
   doMove(assignmentId, fromDate, hours, input.value);
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    LIST VIEW
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function renderList() {
   const { schedule, overdue } = generateSchedule();
   const today = todayStr();
@@ -1739,9 +1880,9 @@ function renderList() {
   document.getElementById('list-content').innerHTML = html;
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    CALENDAR VIEW
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function renderCalendar() {
   const { schedule } = generateSchedule();
   const today    = todayStr();
@@ -1776,7 +1917,7 @@ function calCell(dateStr, schedule, today, other) {
   const cls   = ['cal-cell', other ? 'other' : '', dateStr === today ? 'is-today' : ''].filter(Boolean).join(' ');
   const max   = 3;
   let pills = tasks.slice(0, max).map(({assignment:a, hours}) =>
-    `<div class="cal-pill" style="background:${getColor(a.className)}" title="${esc(a.name)} — ${fmtMinutes(hours)}">${esc(a.name)}</div>`
+    `<div class="cal-pill" style="background:${getColor(a.className)}" title="${esc(a.name)} â ${fmtMinutes(hours)}">${esc(a.name)}</div>`
   ).join('');
   if (tasks.length > max) pills += `<div class="cal-more">+${tasks.length-max}</div>`;
   return `<div class="${cls}"><div class="cal-num">${num}</div><div class="cal-pills">${pills}</div></div>`;
@@ -1789,9 +1930,9 @@ function changeMonth(dir) {
   renderCalendar();
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    MANAGE
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function updateManage() {
   document.getElementById('mgmt-count').textContent = assignments.length;
   const today  = todayStr();
@@ -1827,9 +1968,9 @@ function toggleManage() {
   document.getElementById('manage-toggle').className     = 'manage-toggle' + (manageOpen ? ' open' : '');
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    ADD / DELETE
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function handleAdd(e) {
   e.preventDefault();
   const name  = document.getElementById('f-name').value.trim();
@@ -1875,9 +2016,9 @@ function deleteAssignment(id) {
   showToast('Removed.', '');
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    FILE IMPORT
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function handleFileInput(e) {
   const f = e.target.files[0];
   if (f) importFile(f);
@@ -1979,9 +2120,9 @@ function downloadTemplate() {
   a.click();
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    UI HELPERS
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function togglePanel(id) {
   const el   = document.getElementById(id);
   const show = el.style.display === 'none';
@@ -2023,9 +2164,9 @@ function setDefaultDue() {
   document.getElementById('f-due').value = fmtD(d);
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    DRAG & DROP
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function setupDragDrop() {
   const zone = document.getElementById('drop-zone');
   zone.addEventListener('dragover',  e => { e.preventDefault(); zone.classList.add('over'); });
@@ -2038,9 +2179,9 @@ function setupDragDrop() {
   });
 }
 
-/* ════════════════════════════════════
+/* ââââââââââââââââââââââââââââââââââââ
    INIT
-════════════════════════════════════ */
+ââââââââââââââââââââââââââââââââââââ */
 function init() {
   const now = new Date();
   calYear  = now.getFullYear();
@@ -2076,9 +2217,44 @@ function init() {
 try { init(); } catch(e) {
   const b = document.createElement('div');
   b.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:99999;background:#AC5248;color:#fff;padding:12px 16px;font:600 13px/1.4 monospace';
-  b.textContent = 'Init error: ' + e.message + ' — ' + e.stack;
+  b.textContent = 'Init error: ' + e.message + ' â ' + e.stack;
   document.body.prepend(b);
 }
+
+/* ==========================================
+   PUPPY WIDGET LOGIC
+========================================== */
+function updatePuppy(pct) {
+  const widget = document.getElementById('puppy-widget');
+  const label  = document.getElementById('puppy-mood-label');
+  if (!widget || !label) return;
+  widget.classList.remove('mood-0','mood-25','mood-50','mood-75','mood-100');
+  if (pct === 0) {
+    widget.classList.add('mood-0');
+    label.textContent = '\u{1F622} Feed me some bones!';
+  } else if (pct < 40) {
+    widget.classList.add('mood-25');
+    label.textContent = '\u{1F615} Getting there\u2026 yum!';
+  } else if (pct < 70) {
+    widget.classList.add('mood-50');
+    label.textContent = '\u{1F610} Thanks for the bones!';
+  } else if (pct < 100) {
+    widget.classList.add('mood-75');
+    label.textContent = '\u{1F60A} Almost full!';
+  } else {
+    widget.classList.add('mood-100');
+    label.textContent = '\u{1F389} SO happy! All done!';
+  }
+}
+function feedPuppyBone() {
+  const bone = document.getElementById('puppy-bone');
+  if (!bone) return;
+  bone.classList.remove('fly');
+  void bone.offsetWidth;
+  bone.classList.add('fly');
+  setTimeout(() => bone.classList.remove('fly'), 1000);
+}
+
 </script>
 </body>
 </html>
