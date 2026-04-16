@@ -1111,92 +1111,70 @@
     }
   
     /* ==========================================
-       PUPPY WIDGET
+       PLANT WIDGET
     ========================================== */
-    .puppy-widget {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      padding: 20px 24px 16px;
-      margin-bottom: 14px;
+    .plant-widget {
       background: var(--surface);
-      border-radius: var(--radius);
-      border: 1px solid var(--border-light);
-      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 24px 16px;
+      margin-bottom: 16px;
+      text-align: center;
       position: relative;
-      overflow: visible;
+      overflow: hidden;
     }
-    .puppy-widget-title {
+    .plant-widget-title {
       font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
+      font-weight: 700;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
+      color: var(--text-2);
+      margin-bottom: 10px;
     }
-    .puppy-scene {
+    .plant-scene {
       position: relative;
       width: 160px;
       height: 140px;
+      margin: 0 auto 8px;
     }
-    .puppy-svg { width: 100%; height: 100%; overflow: visible; }
-    .puppy-body-group { transition: transform 0.4s ease; transform-origin: 80px 120px; }
-    .puppy-widget.mood-100 .puppy-body-group { animation: puppyJump 0.55s ease infinite alternate; }
-    @keyframes puppyJump { from { transform: translateY(0px); } to { transform: translateY(-14px); } }
-    .puppy-tail { transform-origin: 108px 80px; animation: tailWag 0.7s ease-in-out infinite alternate; }
-    .puppy-widget.mood-0 .puppy-tail { animation: none; transform: rotate(30deg); }
-    .puppy-widget.mood-25 .puppy-tail { animation: tailWagSlow 2.5s ease-in-out infinite alternate; }
-    @keyframes tailWag { from { transform: rotate(-30deg); } to { transform: rotate(30deg); } }
-    @keyframes tailWagSlow { from { transform: rotate(-10deg); } to { transform: rotate(20deg); } }
-    .puppy-tear { opacity: 0; transition: opacity 0.4s; }
-    .puppy-widget.mood-0 .puppy-tear { opacity: 1; animation: tearDrop 1.4s ease-in infinite; }
-    @keyframes tearDrop {
-      0%   { transform: translateY(0);    opacity: 1; }
-      80%  { transform: translateY(12px); opacity: 0.5; }
-      100% { transform: translateY(16px); opacity: 0; }
-    }
-    .puppy-mouth-happy   { opacity: 1; }
-    .puppy-mouth-sad     { opacity: 0; }
-    .puppy-mouth-neutral { opacity: 0; }
-    .puppy-widget.mood-0  .puppy-mouth-happy   { opacity: 0; }
-    .puppy-widget.mood-0  .puppy-mouth-sad     { opacity: 1; }
-    .puppy-widget.mood-0  .puppy-mouth-neutral { opacity: 0; }
-    .puppy-widget.mood-25 .puppy-mouth-happy   { opacity: 0; }
-    .puppy-widget.mood-25 .puppy-mouth-sad     { opacity: 0; }
-    .puppy-widget.mood-25 .puppy-mouth-neutral { opacity: 1; }
-    .puppy-blush { opacity: 0; transition: opacity 0.5s; }
-    .puppy-widget.mood-75  .puppy-blush { opacity: 0.45; }
-    .puppy-widget.mood-100 .puppy-blush { opacity: 0.75; }
-    .puppy-stars { opacity: 0; }
-    .puppy-widget.mood-100 .puppy-stars { opacity: 1; animation: starSpin 2s linear infinite; }
-    @keyframes starSpin {
-      0%   { transform: rotate(0deg)   scale(1);    }
-      50%  { transform: rotate(180deg) scale(1.12); }
-      100% { transform: rotate(360deg) scale(1);    }
-    }
-    .puppy-bone {
+    .plant-svg { width: 100%; height: 100%; overflow: visible; }
+
+    /* Growth stages */
+    .plant-stage { opacity: 0; transition: opacity 0.6s ease; }
+    .plant-widget.stage-0  .plant-stage-0  { opacity: 1; }
+    .plant-widget.stage-1  .plant-stage-1  { opacity: 1; }
+    .plant-widget.stage-2  .plant-stage-2  { opacity: 1; }
+    .plant-widget.stage-3  .plant-stage-3  { opacity: 1; }
+    .plant-widget.stage-4  .plant-stage-4  { opacity: 1; }
+    .plant-widget.stage-5  .plant-stage-5  { opacity: 1; }
+
+    /* Water droplet animation */
+    .water-drop {
       position: absolute;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       pointer-events: none;
-      opacity: 0;
-      bottom: 30px;
-      right: 0px;
+      top: 10px;
+      right: 10px;
       z-index: 10;
+      opacity: 0;
     }
-    .puppy-bone.fly { animation: boneFly 0.85s cubic-bezier(.22,.68,0,1.2) forwards; }
-    @keyframes boneFly {
-      0%   { opacity: 1; transform: translate(0,0)       scale(1)    rotate(0deg);   }
-      55%  { opacity: 1; transform: translate(-50px,-50px) scale(1.25) rotate(-35deg); }
-      100% { opacity: 0; transform: translate(-70px,-15px) scale(0.4)  rotate(-65deg); }
-    }
-    .puppy-mood-label {
-      font-size: 0.82rem;
-      color: var(--text-2);
-      font-weight: 500;
-      min-height: 1.2em;
-      transition: all 0.4s;
+    .water-drop.splash { animation: waterSplash 0.9s cubic-bezier(.22,.68,0,1.2) forwards; }
+    @keyframes waterSplash {
+      0%   { opacity: 1; transform: translate(0px, 0px) scale(1); }
+      55%  { opacity: 1; transform: translate(-40px, -40px) scale(1.2); }
+      100% { opacity: 0; transform: translate(-55px, -10px) scale(0.4); }
     }
 
+    /* Tulip bloom bounce at 100% */
+    .plant-widget.stage-5 .plant-stage-5 { animation: bloomBounce 1.2s ease-in-out infinite alternate; }
+    @keyframes bloomBounce { from { transform: translateY(0px); } to { transform: translateY(-6px); } }
+
+    .plant-mood-label {
+      font-size: 0.82rem;
+      color: var(--text-2);
+      margin-top: 4px;
+      min-height: 1.2em;
+    }
   </style>
 </head>
 <body>
@@ -1320,55 +1298,125 @@
     </div>
 
     
-    <!-- PUPPY WIDGET -->
-    <div class="puppy-widget mood-0" id="puppy-widget">
-      <div class="puppy-widget-title">Your Study Buddy</div>
-      <div class="puppy-scene">
-        <div class="puppy-bone" id="puppy-bone">&#x1F9B4;</div>
-        <svg class="puppy-stars" style="position:absolute;top:0;left:0;width:160px;height:140px;pointer-events:none;overflow:visible" viewBox="0 0 160 140">
-          <text x="8"   y="28"  font-size="14" fill="#FFD700">&#x2726;</text>
-          <text x="130" y="22"  font-size="12" fill="#FFD700">&#x2605;</text>
-          <text x="18"  y="112" font-size="10" fill="#FFD700">&#x2726;</text>
-          <text x="136" y="102" font-size="14" fill="#FFD700">&#x2605;</text>
-          <text x="72"  y="8"   font-size="11" fill="#FFD700">&#x2726;</text>
-        </svg>
-        <svg class="puppy-svg" viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
-          <g class="puppy-body-group">
-            <ellipse class="puppy-tail" cx="112" cy="80" rx="9" ry="18" fill="#C4956A" transform="rotate(-40,112,80)"/>
-            <ellipse cx="78" cy="95" rx="38" ry="30" fill="#D4AA7D"/>
-            <ellipse cx="52" cy="122" rx="12" ry="7" fill="#C4956A" transform="rotate(-10,52,122)"/>
-            <ellipse cx="106" cy="122" rx="12" ry="7" fill="#C4956A" transform="rotate(10,106,122)"/>
-            <rect x="59" y="110" width="13" height="20" rx="6" fill="#D4AA7D"/>
-            <rect x="86" y="110" width="13" height="20" rx="6" fill="#D4AA7D"/>
-            <ellipse cx="65" cy="130" rx="8" ry="5" fill="#C4956A"/>
-            <ellipse cx="92" cy="130" rx="8" ry="5" fill="#C4956A"/>
-            <ellipse cx="78" cy="72" rx="20" ry="16" fill="#D4AA7D"/>
-            <ellipse cx="78" cy="54" rx="28" ry="24" fill="#D4AA7D"/>
-            <ellipse cx="52" cy="44" rx="12" ry="18" fill="#C4956A" transform="rotate(-15,52,44)"/>
-            <ellipse cx="104" cy="44" rx="12" ry="18" fill="#C4956A" transform="rotate(15,104,44)"/>
-            <ellipse cx="67" cy="50" rx="8"  ry="8.5" fill="white"/>
-            <ellipse cx="90" cy="50" rx="8"  ry="8.5" fill="white"/>
-            <ellipse cx="68" cy="51" rx="5"  ry="5.5" fill="#2C1A0E"/>
-            <ellipse cx="91" cy="51" rx="5"  ry="5.5" fill="#2C1A0E"/>
-            <circle  cx="70" cy="49" r="1.5" fill="white"/>
-            <circle  cx="93" cy="49" r="1.5" fill="white"/>
-            <line class="puppy-brow-l" x1="61" y1="42" x2="72" y2="44" stroke="#8B5E3C" stroke-width="2.5" stroke-linecap="round"/>
-            <line class="puppy-brow-r" x1="98" y1="42" x2="87" y2="44" stroke="#8B5E3C" stroke-width="2.5" stroke-linecap="round"/>
-            <ellipse cx="78" cy="60" rx="14" ry="10" fill="#C4956A"/>
-            <ellipse cx="78" cy="56" rx="5"  ry="3.5" fill="#2C1A0E"/>
-            <path class="puppy-mouth-happy"   d="M70 64 Q78 72 86 64" fill="none" stroke="#2C1A0E" stroke-width="2" stroke-linecap="round"/>
-            <path class="puppy-mouth-sad"     d="M70 67 Q78 61 86 67" fill="none" stroke="#2C1A0E" stroke-width="2" stroke-linecap="round"/>
-            <path class="puppy-mouth-neutral" d="M70 65 Q78 65 86 65" fill="none" stroke="#2C1A0E" stroke-width="2" stroke-linecap="round"/>
-            <ellipse class="puppy-blush" cx="57" cy="59" rx="8" ry="5" fill="#FF9999" opacity="0.6"/>
-            <ellipse class="puppy-blush" cx="99" cy="59" rx="8" ry="5" fill="#FF9999" opacity="0.6"/>
-            <ellipse class="puppy-tear" cx="62" cy="58" rx="2.5" ry="3.5" fill="#6BB5E8"/>
-            <ellipse class="puppy-tear" cx="94" cy="58" rx="2.5" ry="3.5" fill="#6BB5E8"/>
+    <!-- PLANT WIDGET -->
+    <div class="plant-widget stage-0" id="plant-widget">
+      <div class="plant-widget-title">Your Study Buddy 🌱</div>
+      <div class="water-drop" id="water-drop">💧</div>
+      <div class="plant-scene">
+        <svg class="plant-svg" viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- Stage 0: Seed / tulip bulb (0%) -->
+          <g class="plant-stage plant-stage-0">
+            <!-- soil -->
+            <ellipse cx="80" cy="125" rx="55" ry="10" fill="#8B6340"/>
+            <rect x="25" y="115" width="110" height="20" rx="6" fill="#8B6340"/>
+            <!-- bulb -->
+            <ellipse cx="80" cy="112" rx="18" ry="13" fill="#C8A265"/>
+            <ellipse cx="80" cy="112" rx="14" ry="9" fill="#D4B07A"/>
+            <!-- tiny tip -->
+            <path d="M80 99 Q82 95 80 91 Q78 95 80 99" fill="#6B8E4E"/>
           </g>
+
+          <!-- Stage 1: Watered seed / sprouting (1-24%) -->
+          <g class="plant-stage plant-stage-1">
+            <!-- soil -->
+            <ellipse cx="80" cy="125" rx="55" ry="10" fill="#7A5530"/>
+            <rect x="25" y="115" width="110" height="20" rx="6" fill="#7A5530"/>
+            <!-- water sheen on soil -->
+            <ellipse cx="72" cy="120" rx="10" ry="3" fill="#9BC4E2" opacity="0.5"/>
+            <ellipse cx="92" cy="122" rx="7" ry="2" fill="#9BC4E2" opacity="0.4"/>
+            <!-- bulb -->
+            <ellipse cx="80" cy="112" rx="18" ry="13" fill="#C8A265"/>
+            <ellipse cx="80" cy="112" rx="14" ry="9" fill="#D4B07A"/>
+            <!-- small sprout emerging -->
+            <path d="M80 99 Q81 93 80 86" stroke="#6B8E4E" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <ellipse cx="80" cy="84" rx="5" ry="8" fill="#7AAD52" transform="rotate(-10,80,84)"/>
+          </g>
+
+          <!-- Stage 2: Small sprout (25-49%) -->
+          <g class="plant-stage plant-stage-2">
+            <!-- soil -->
+            <rect x="25" y="115" width="110" height="20" rx="6" fill="#8B6340"/>
+            <!-- stem -->
+            <path d="M80 115 Q80 100 80 78" stroke="#5A8A3A" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <!-- left small leaf -->
+            <path d="M80 100 Q62 90 60 78 Q70 82 80 95" fill="#7AAD52"/>
+            <!-- right small leaf -->
+            <path d="M80 100 Q98 90 100 78 Q90 82 80 95" fill="#6B9E45"/>
+            <!-- two tiny top leaves -->
+            <ellipse cx="80" cy="75" rx="5" ry="9" fill="#82BB54" transform="rotate(-12,80,75)"/>
+            <ellipse cx="82" cy="73" rx="5" ry="9" fill="#74A84A" transform="rotate(12,82,73)"/>
+          </g>
+
+          <!-- Stage 3: Bigger sprout (50-74%) -->
+          <g class="plant-stage plant-stage-3">
+            <!-- soil -->
+            <rect x="25" y="115" width="110" height="20" rx="6" fill="#8B6340"/>
+            <!-- main stem -->
+            <path d="M80 115 Q79 95 80 60" stroke="#4E7A30" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <!-- large left leaf -->
+            <path d="M80 95 Q52 78 46 58 Q62 66 80 88" fill="#7AAD52"/>
+            <!-- large right leaf -->
+            <path d="M80 95 Q108 78 114 58 Q98 66 80 88" fill="#6B9E45"/>
+            <!-- medium left leaf upper -->
+            <path d="M80 75 Q62 64 60 50 Q70 57 80 70" fill="#82BB54"/>
+            <!-- bud beginning -->
+            <ellipse cx="80" cy="52" rx="8" ry="12" fill="#5A8A3A"/>
+            <ellipse cx="80" cy="48" rx="6" ry="8" fill="#6B9E45"/>
+          </g>
+
+          <!-- Stage 4: Plant / tall with bud (75-99%) -->
+          <g class="plant-stage plant-stage-4">
+            <!-- soil -->
+            <rect x="25" y="115" width="110" height="20" rx="6" fill="#8B6340"/>
+            <!-- main stem -->
+            <path d="M80 115 Q78 90 80 45" stroke="#3E6824" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <!-- big left leaf -->
+            <path d="M80 100 Q48 82 42 55 Q60 68 80 93" fill="#7AAD52"/>
+            <!-- big right leaf -->
+            <path d="M80 100 Q112 82 118 55 Q100 68 80 93" fill="#6B9E45"/>
+            <!-- upper left leaf -->
+            <path d="M80 75 Q58 60 55 42 Q68 52 80 68" fill="#82BB54"/>
+            <!-- large elongated bud -->
+            <ellipse cx="80" cy="35" rx="9" ry="16" fill="#4A7A2E"/>
+            <!-- petal tips peeking -->
+            <path d="M72 30 Q68 18 72 12 Q74 20 72 28" fill="#E8607A"/>
+            <path d="M88 30 Q92 18 88 12 Q86 20 88 28" fill="#D4506A"/>
+            <path d="M80 22 Q80 12 80 6 Q82 12 80 20" fill="#E8607A"/>
+          </g>
+
+          <!-- Stage 5: Full tulip bloom (100%) -->
+          <g class="plant-stage plant-stage-5">
+            <!-- soil -->
+            <rect x="25" y="115" width="110" height="20" rx="6" fill="#8B6340"/>
+            <!-- main stem -->
+            <path d="M80 115 Q78 90 80 58" stroke="#3E6824" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <!-- big left leaf -->
+            <path d="M80 100 Q48 82 42 55 Q60 68 80 93" fill="#7AAD52"/>
+            <!-- big right leaf -->
+            <path d="M80 100 Q112 82 118 55 Q100 68 80 93" fill="#6B9E45"/>
+            <!-- tulip petals - back -->
+            <ellipse cx="68" cy="44" rx="12" ry="24" fill="#C8405A" transform="rotate(-18,68,44)"/>
+            <ellipse cx="92" cy="44" rx="12" ry="24" fill="#B83558" transform="rotate(18,92,44)"/>
+            <!-- tulip petals - middle -->
+            <ellipse cx="72" cy="40" rx="11" ry="22" fill="#E05070" transform="rotate(-8,72,40)"/>
+            <ellipse cx="88" cy="40" rx="11" ry="22" fill="#D0456A" transform="rotate(8,88,40)"/>
+            <!-- tulip petal - front center -->
+            <ellipse cx="80" cy="38" rx="12" ry="24" fill="#E8607A"/>
+            <!-- stamen -->
+            <line x1="80" y1="48" x2="78" y2="36" stroke="#F5D020" stroke-width="1.5"/>
+            <circle cx="78" cy="35" r="2" fill="#F5D020"/>
+            <line x1="80" y1="48" x2="82" y2="35" stroke="#F5D020" stroke-width="1.5"/>
+            <circle cx="82" cy="34" r="2" fill="#F5D020"/>
+            <!-- sparkles -->
+            <text x="50" y="25" font-size="12" opacity="0.9">✨</text>
+            <text x="96" y="22" font-size="10" opacity="0.8">✨</text>
+          </g>
+
         </svg>
       </div>
-      <div class="puppy-mood-label" id="puppy-mood-label">&#x1F622; Feed me some bones!</div>
+      <div class="plant-mood-label" id="plant-mood-label">🌰 Plant your first seed…</div>
     </div>
-
     <!-- Today's task list -->
     <div id="today-tasks-section">
       <div class="section-label" id="today-section-label">Today's Tasks</div>
@@ -1664,7 +1712,7 @@ function renderToday() {
   });
 
   const pct = totalH > 0 ? Math.round((doneH / totalH) * 100) : 0;
-  updatePuppy(pct);
+  updatePlant(pct);
   const remainH = Math.max(0, totalH - doneH);
 
   // Update ring
@@ -1777,7 +1825,7 @@ function toggleComplete(assignmentId, dateStr) {
   const wasCompleted = !!completed[key];
   if (completed[key]) delete completed[key];
   else completed[key] = true;
-  if (!wasCompleted) feedPuppyBone();
+  if (!wasCompleted) waterPlant();
   save();
   renderAll();
 }
@@ -2224,36 +2272,40 @@ try { init(); } catch(e) {
 /* ==========================================
    PUPPY WIDGET LOGIC
 ========================================== */
-function updatePuppy(pct) {
-  const widget = document.getElementById('puppy-widget');
-  const label  = document.getElementById('puppy-mood-label');
+function updatePlant(pct) {
+  const widget = document.getElementById('plant-widget');
+  const label  = document.getElementById('plant-mood-label');
   if (!widget || !label) return;
-  widget.classList.remove('mood-0','mood-25','mood-50','mood-75','mood-100');
+  widget.classList.remove('stage-0','stage-1','stage-2','stage-3','stage-4','stage-5');
   if (pct === 0) {
-    widget.classList.add('mood-0');
-    label.textContent = '\u{1F622} Feed me some bones!';
-  } else if (pct < 40) {
-    widget.classList.add('mood-25');
-    label.textContent = '\u{1F615} Getting there\u2026 yum!';
-  } else if (pct < 70) {
-    widget.classList.add('mood-50');
-    label.textContent = '\u{1F610} Thanks for the bones!';
+    widget.classList.add('stage-0');
+    label.textContent = '\u{1F330} Plant your first seed\u2026';
+  } else if (pct < 25) {
+    widget.classList.add('stage-1');
+    label.textContent = '\u{1F4A7} Keep watering\u2026 it\'s sprouting!';
+  } else if (pct < 50) {
+    widget.classList.add('stage-2');
+    label.textContent = '\u{1F331} A little sprout! Great start!';
+  } else if (pct < 75) {
+    widget.classList.add('stage-3');
+    label.textContent = '\u{1F33F} Growing strong, keep going!';
   } else if (pct < 100) {
-    widget.classList.add('mood-75');
-    label.textContent = '\u{1F60A} Almost full!';
+    widget.classList.add('stage-4');
+    label.textContent = '\u{1F337} Almost there \u2014 bud is forming!';
   } else {
-    widget.classList.add('mood-100');
-    label.textContent = '\u{1F389} SO happy! All done!';
+    widget.classList.add('stage-5');
+    label.textContent = '\u{1F338} Beautiful! Full bloom! All done!';
   }
 }
-function feedPuppyBone() {
-  const bone = document.getElementById('puppy-bone');
-  if (!bone) return;
-  bone.classList.remove('fly');
-  void bone.offsetWidth;
-  bone.classList.add('fly');
-  setTimeout(() => bone.classList.remove('fly'), 1000);
+function waterPlant() {
+  const drop = document.getElementById('water-drop');
+  if (!drop) return;
+  drop.classList.remove('splash');
+  void drop.offsetWidth;
+  drop.classList.add('splash');
+  setTimeout(() => drop.classList.remove('splash'), 1000);
 }
+
 
 </script>
 </body>
